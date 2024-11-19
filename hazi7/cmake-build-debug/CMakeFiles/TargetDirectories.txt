@@ -1,3 +1,0 @@
-E:/bodaszili cns info malaj/homeworks/hazi7/cmake-build-debug/CMakeFiles/hazi7.dir
-E:/bodaszili cns info malaj/homeworks/hazi7/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/bodaszili cns info malaj/homeworks/hazi7/cmake-build-debug/CMakeFiles/rebuild_cache.dir
