@@ -1,41 +1,37 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
 
 using namespace std;
 
 int main() {
     int N, M;
+
     cin >> N;
+    int tomb1[N];
 
-    vector<int> arrayN(N);
-
-    for (int i = 0; i < N; ++i) {
-        cin >> arrayN[i];
-    }
+    for (int i = 0; i < N; i++)
+        cin >> tomb1[i];
 
     cin >> M;
-    vector<int> arrayM(M);
+    int tomb2[M];
 
-    for (int i = 0; i < M; ++i) {
-        cin >> arrayM[i];
+    for (int i = 0; i < M; i++)
+        cin >> tomb2[i];
+
+    int S = 0;
+    for (int i = 0; i < min(N, M); i++) {
+        if (tomb1[i] == tomb2[i])
+            S += tomb1[i];
     }
 
-    int sum = 0;
-    for (int i = 0; i < min(N, M); ++i) {
-        if (arrayN[i] == arrayM[i]) {
-            sum += arrayN[i];
-        }
+    int forditottOsszeg = 0;
+    while (S != 0) {
+        int szj = S % 10;
+        forditottOsszeg = forditottOsszeg * 10 + szj;
+        S /= 10;
     }
 
-    int reversedSum = 0;
-    while (sum != 0) {
-        int digit = sum % 10;
-        reversedSum = reversedSum * 10 + digit;
-        sum /= 10;
-    }
-
-    cout << reversedSum;
+    cout << forditottOsszeg << endl;
 
     return 0;
 }

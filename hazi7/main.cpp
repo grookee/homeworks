@@ -1,5 +1,3 @@
-// Keressük meg egy 1D tömb utolsó pallindróm elemét és írjuk ki!
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
