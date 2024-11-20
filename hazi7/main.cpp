@@ -1,3 +1,5 @@
+// Keressük meg egy 1D tömb utolsó pallindróm elemét és írjuk ki!
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,37 +7,32 @@
 using namespace std;
 
 int main() {
-    int N, M;
+    int N;
     cin >> N;
 
-    vector<int> arrayN(N);
+    vector<int> tomb(N);
 
     for (int i = 0; i < N; ++i) {
-        cin >> arrayN[i];
+        cin >> tomb[i];
     }
 
-    cin >> M;
-    vector<int> arrayM(M);
+    auto palindrom = [](int n) {
+        int forditott = 0;
+        int szam = n;
+        while (n != 0) {
+            int szj = n % 10;
+            forditott = forditott  * 10 + szj;
+            n /= 10;
+        }
+        return szam == forditott;
+    };
 
-    for (int i = 0; i < M; ++i) {
-        cin >> arrayM[i];
-    }
-
-    int sum = 0;
-    for (int i = 0; i < min(N, M); ++i) {
-        if (arrayN[i] == arrayM[i]) {
-            sum += arrayN[i];
+    for (int i = N - 1; i >= 0; i--) {
+        if (palindrom(tomb[i])) {
+            cout << tomb[i];
+            break;
         }
     }
-
-    int reversedSum = 0;
-    while (sum != 0) {
-        int digit = sum % 10;
-        reversedSum = reversedSum * 10 + digit;
-        sum /= 10;
-    }
-
-    cout << reversedSum;
 
     return 0;
 }
